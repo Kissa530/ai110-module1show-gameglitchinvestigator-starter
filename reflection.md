@@ -17,7 +17,7 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| 20    |    Go higher      |  Go lower       | 25 was the guess and it's higher than 20
+| Guess a number between 1 and 100. Input was 20 and guess was 25    |    Go higher      |  Go lower       | 25 was the guess and it's higher than 20
 | 70    |    Go higher      |  Go lower       | 75 was the guess and it's higher than 70
 | 90    |    Go lower       |  Go higher      | 83 was the guess and it's lower than 90
 
