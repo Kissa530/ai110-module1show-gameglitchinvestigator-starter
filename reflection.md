@@ -5,8 +5,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+  The game looked like a regular guess a number game. When I clicked submit a guess, it kept telling me to go lower even when I guessed 1 when the values were between 1 and 100. The same happened when I put 1 and 100 and I guessed 100. It told me to go higher. There are more bugs listed below.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
+  Every time I guessed a number, it would tell me to go lower even if it is lower than the secret number.
+  I tried the game on easy mode (1-20) and it still told me to select a number from 1-100.
 
 **Bug Reproduction Log**
 
@@ -14,9 +17,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| 20    |    Go higher         Go lower        25 was the guess and it's higher than 20
+| 70    |    Go higher         Go lower        75 was the guess and it's higher than 70
+| 90    |    Go lower          Go higher       83 was the guess and it's lower than 90
 
 ---
 
