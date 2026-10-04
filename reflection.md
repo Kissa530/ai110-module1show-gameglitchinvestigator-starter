@@ -26,17 +26,23 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+  Besides Claude, I used Copilot on VS Code.
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+  I asked Copilot to move the check_guess function from app.py into logic_utils.py and fix the bug where the high/low hint text was inverted (a guess higher than the secret should say "Go lower," not "Go higher," and vice versa). Copilot correctly refactored the function and swapped the hint strings. I verified this was correct by writing a pytest test confirming that check_guess(60, 50) returns the "Too High" outcome with the "Go lower" message, and by manually playing the game with guesses both above and below the secret to confirm the hints now displayed correctly in both directions.
 - Give one example of an AI suggestion you did not accept as written (including what the AI suggested, why you rejected or changed it, and how you verified your version). It does not have to be a suggestion that was wrong: over-engineered, out of scope, harder to read, or a poor fit for this codebase all count.
+  When Copilot refactored the game's logic functions (including get_range_for_difficulty) out of app.py and into logic_utils.py, it initially left the function body as a placeholder that raised NotImplementedError instead of carrying over the real implementation. This crashed the app immediately with a traceback when I tried to run it. I rejected this version and asked Copilot to fill in the actual difficulty-range logic instead of leaving a stub. I verified the fix by rerunning the app with streamlit run app.py and confirming it loaded without errors, and that each difficulty setting produced the correct guessing range.
 
 ---
 
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+  I considered a bug fixed when it passed two checks: an automated pytest test targeting the specific behavior, and manual playtesting in the live Streamlit app to confirm the fix held up under real use, not just in an isolated test case.
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+  I ran a pytest test checking that check_guess(60, 50) returns the "Too High" outcome paired with the "Go lower" hint message. Before my fix, this would have failed because the hint text was inverted (it returned "Go higher" instead). After refactoring check_guess into logic_utils.py and correcting the hint strings, the test passed, confirming the fix worked at the function level — not just by chance in the UI. I also manually played multiple rounds in the app itself, guessing both above and below the secret number across several attempts, to confirm the hints were correct in live gameplay and that the attempts counter and secret comparison no longer broke on even-numbered attempts.
 - Did AI help you design or understand any tests? How?
+  Yes — I asked Copilot to generate the pytest test case in test/test_game_logic.py targeting the hint-text bug, since I wanted a test that directly verified the fixed behavior (check_guess(60, 50) returning "Too High" with "Go lower"). Having the AI generate the test also helped me confirm I understood the expected input/output shape of check_guess correctly, since I used that same understanding to manually verify the fix in the live game afterward.
 
 ---
 
