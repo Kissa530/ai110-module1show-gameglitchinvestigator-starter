@@ -30,7 +30,7 @@ It wrote the code, ran away, and now the game is unplayable.
    A number-guessing game built in Streamlit where the player tries to guess a secret number within a limited number of attempts, based on difficulty level (Easy, Normal, Hard), receiving "higher/lower" hints after each guess.
 - [ ] Detail which bugs you found.
 
-1. The high/low hint text was inverted — guessing too high returned "Go higher" instead of "Go lower," and vice versa.
+1. The high/low hint text was inverted like guessing too high returned "Go higher" instead of "Go lower," and vice versa.
 2. The secret number was converted to a string on even-numbered attempts but left as an integer on odd attempts, causing a type mismatch that triggered incorrect string-based comparisons instead of numeric ones.
 3. The attempts counter initialized at 1 instead of 0, causing the game to end one attempt earlier than it should have.
 
