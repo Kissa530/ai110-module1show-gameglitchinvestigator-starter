@@ -39,7 +39,7 @@ It wrote the code, ran away, and now the game is unplayable.
 1. Refactored `check_guess` into `logic_utils.py` and corrected the hint strings so "Too High" returns "Go lower" and "Too Low" returns "Go higher."
 2. Removed the string conversion of the secret number so it's always compared as an integer.
 3. Changed the initial `attempts` value from 1 to 0 so it matches the reset value used by "New Game," ensuring the first guess is correctly counted as attempt #1.
-4. Added pytest tests in `tests/test_game_logic.py` to verify the corrected behavior; all 7 tests pass.
+4. Added pytest tests in `tests/test_game_logic.py` to verify the corrected behavior; all 12 tests pass.
 
 ## 📸 Demo Walkthrough
 
