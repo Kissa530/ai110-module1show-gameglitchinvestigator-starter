@@ -63,11 +63,11 @@ PS C:\Users\issam\Downloads\ai110-module1show-gameglitchinvestigator-starter> py
 platform win32 -- Python 3.14.6, pytest-9.1.1, pluggy-1.6.0
 rootdir: C:\Users\issam\Downloads\ai110-module1show-gameglitchinvestigator-starter
 plugins: anyio-4.15.1
-collected 7 items
+collected 12 items
 
-tests\test_game_logic.py .......                                                                                 [100%]
+tests\test_game_logic.py ............                                                                            [100%]
 
-================================================== 7 passed in 0.03s ==================================================
+================================================= 12 passed in 0.03s ==================================================
 ```
 
 ## 🚀 Stretch Features
