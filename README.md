@@ -26,18 +26,30 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+
+   A number-guessing game built in Streamlit where the player tries to guess a secret number within a limited number of attempts, based on difficulty level (Easy, Normal, Hard), receiving "higher/lower" hints after each guess.
 - [ ] Detail which bugs you found.
+
+1. The high/low hint text was inverted — guessing too high returned "Go higher" instead of "Go lower," and vice versa.
+2. The secret number was converted to a string on even-numbered attempts but left as an integer on odd attempts, causing a type mismatch that triggered incorrect string-based comparisons instead of numeric ones.
+3. The attempts counter initialized at 1 instead of 0, causing the game to end one attempt earlier than it should have.
+
 - [ ] Explain what fixes you applied.
+
+1. Refactored `check_guess` into `logic_utils.py` and corrected the hint strings so "Too High" returns "Go lower" and "Too Low" returns "Go higher."
+2. Removed the string conversion of the secret number so it's always compared as an integer.
+3. Changed the initial `attempts` value from 1 to 0 so it matches the reset value used by "New Game," ensuring the first guess is correctly counted as attempt #1.
+4. Added pytest tests in `tests/test_game_logic.py` to verify the corrected behavior; all 7 tests pass.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User selects "Normal" difficulty (range 1–100, 8 attempts)
+2. User enters a guess of 25 against a secret of 20 — game correctly returns "Go lower"
+3. User enters a guess of 15 — game correctly returns "Go higher"
+4. User enters a guess of 20 — game returns a win message and the score updates
+5. Attempts remaining count down accurately with each guess, and the game only ends after all 8 attempts are used without a correct guess
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
